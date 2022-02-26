@@ -1,0 +1,8 @@
+{
+  "name": "cloudinary-uploads-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lucasbernardol/cloudinary-uploads-api.git",
+  "author": "lucasbernardol <jose.lukass03@gmail.com>",
+  "license": "MIT"
+}
