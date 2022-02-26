@@ -5,6 +5,9 @@
   "repository": "https://github.com/lucasbernardol/cloudinary-uploads-api.git",
   "author": "lucasbernardol <jose.lukass03@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "husky:init": "husky install"
+  },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
