@@ -5,8 +5,8 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const folder = isDevelopment ? 'src' : 'dist';
 
 const typeORMExtrasOptions = {
-  logging: true,
-  synchronize: true,
+  logging: false,
+  synchronize: false,
 };
 
 module.exports = {
