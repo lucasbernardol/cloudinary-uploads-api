@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "lib": ["ES6"],
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+    "isolatedModules": false,
+
+    "strict": false,
+    "typeRoots": ["./node_modules/@types/", "./src/@types"],
+
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@constants/*": ["constants/*"],
+
+      "@controllers/*": ["api/core/controllers/*"],
+      "@entities/*": ["api/core/entities/*"],
+      "@middlewares/*": ["api/core/middlewares/*"],
+      "@database/*": ["api/core/database/*"],
+      "@repositories/*": ["api/core/repositories/*"],
+      "@services/*": ["api/core/services/*"],
+      "@validators/*": ["api/core/validators/*"],
+      "@routes/*": ["api/routes/*"],
+      "@providers/*": ["api/core/providers/*"],
+
+      "@api/*": ["api/*"],
+      "@shared/*": ["shared/*"]
+    },
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*"]
+}
