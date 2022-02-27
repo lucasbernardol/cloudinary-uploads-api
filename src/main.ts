@@ -3,13 +3,19 @@ import 'dotenv/config';
 import { DatabaseConnection } from '@database/DatabaseConnection';
 import { app } from '@api/app';
 
+import env from '@config/env';
+
 async function load() {
-  app.listen(3333, () => console.log('\nHOST: http://localhost:3333'));
+  const { port, host } = env;
+
+  app.listen(port, () => console.log(`\nHOST: ${host}`));
 }
 
 /** Database connection  */
 DatabaseConnection.connect().then(async (connection) => {
-  console.log(`\nDATABASE: ${connection.options.type}`);
-
   await load();
+
+  const { type } = connection.options;
+
+  console.log(`\nDATABASE: ${type.toUpperCase()}`);
 });
