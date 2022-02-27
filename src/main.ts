@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import { DatabaseConnection } from '@database/DatabaseConnection';
 import { app } from '@api/app';
 
