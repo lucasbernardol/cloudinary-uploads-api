@@ -1,0 +1,40 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@config": "./src/config",
+          "@constants": "./src/constants",
+          "@shared": "./src/shared",
+          "@api": "./src/api",
+
+          "@controllers": "./src/api/core/controllers",
+          "@entities": "./src/api/core/entities",
+          "@middlewares": "./src/api/core/middlewares",
+          "@database": "./src/api/core/database",
+          "@repositories": "./src/api/core/repositories",
+          "@services": "./src/api/core/services",
+          "@validators": "./src/api/core/validators",
+          "@providers": "./src/api/core/providers",
+          "@routes": "./src/api/routes"
+        }
+      }
+    ],
+    "babel-plugin-transform-typescript-metadata",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  ],
+  "comments": false
+}
