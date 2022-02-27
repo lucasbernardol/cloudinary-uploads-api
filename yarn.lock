@@ -1812,6 +1812,11 @@ packet-reader@1.0.0:
   resolved "https://registry.yarnpkg.com/packet-reader/-/packet-reader-1.0.0.tgz#9238e5480dedabacfe1fe3f2771063f164157d74"
   integrity sha512-HAKu/fG3HpHFO0AA8WE8q2g+gBJaZ9MG7fcKk+IJPLTGAD6Psw4443l+9DGRbOIh3/aXr7Phy0TjilYivJo5XQ==
 
+paging-util@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/paging-util/-/paging-util-2.1.2.tgz#a3c9dc5527ce4b83d8c7c4c99b4247e57e68d3de"
+  integrity sha512-+nNU14QQA6gBEt51Lj2rXmFnufAtgwa+PhOhEcGM8luh4G3DK6Almq7GuQ0+VRSTj25+GfTs9DVV4Qr/RM4jcw==
+
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
