@@ -6,6 +6,7 @@ export interface CloudinaryEnv {
 
 export interface Env {
   NODE_ENV: string;
+  IS_NODE_ENV_DEVELOPMENT: boolean;
   host: string;
   port: number;
 
@@ -15,6 +16,7 @@ export interface Env {
 
 const variables: Env = {
   NODE_ENV: process.env.NODE_ENV,
+  IS_NODE_ENV_DEVELOPMENT: process.env.NODE_ENV === 'development',
 
   /** @default: "http://localhost:3333/"  */
   host: process.env.HOST || 'http://localhost:3333/',

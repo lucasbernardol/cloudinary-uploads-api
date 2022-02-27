@@ -47,14 +47,14 @@ const options: Options = {
     /** @TODO Return a error message  */
     if (!isSupportedMimetype) {
       const extras = {
+        supported_mimetypes: [...supportedMimetypes],
         filename: originalname,
         supported_size_bytes: multerMaxFileSizeInBytes, // sizes
-        supported_mimetypes: [...supportedMimetypes],
       };
 
       const message = `Invalid mimetype: "${currentFileMimetype}", please try again later!`;
 
-      return callback(createCustomHttpError(400, message, extras));
+      return callback(createCustomHttpError(415, message, extras));
     }
 
     /**OK */
