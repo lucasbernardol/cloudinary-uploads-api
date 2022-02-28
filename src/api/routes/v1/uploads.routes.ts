@@ -7,6 +7,7 @@ import { FindUploadByIdController } from '@controllers/uploads/FindUploadByIdCon
 import { CreateUploadController } from '@controllers/uploads/CreateUploadController';
 import { DeleteUploadController } from '@controllers/uploads/DeleteUploadController';
 
+import { createLimiter } from '@middlewares/limiter';
 import { options } from '@config/uploader';
 
 const routes = Router();
@@ -25,7 +26,30 @@ const deleteController = new DeleteUploadController();
 routes.get('/uploads', listController.handle);
 routes.get('/uploads/:id', findController.handle);
 
-routes.post('/uploads', multerSigleUpload, createController.handle);
-routes.delete('/uploads/:id', deleteController.handle);
+/**
+ * - 5 minutes to ms
+ *  (5 * 60) * 1000 = 300 * 1000 = 3 * 1000000 = 300000ms
+ */
+const createUploadLimiter = createLimiter({
+  windowMs: 300000,
+  max: 20,
+});
+
+routes.post(
+  '/uploads',
+  createUploadLimiter,
+  multerSigleUpload,
+  createController.handle
+);
+
+/**
+ *  2 minutes => 5 requests
+ */
+const deleteUploadLimiter = createLimiter({
+  windowMs: 120000,
+  max: 25,
+});
+
+routes.delete('/uploads/:id', deleteUploadLimiter, deleteController.handle);
 
 export { routes as uploadsRoutes };
