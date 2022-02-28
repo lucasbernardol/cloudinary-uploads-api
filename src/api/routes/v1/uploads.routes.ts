@@ -4,6 +4,8 @@ import multer from 'multer';
 import { ListUploadsController } from '@controllers/uploads/ListUploadsController';
 import { FindUploadByIdController } from '@controllers/uploads/FindUploadByIdController';
 
+import { FindUploadsByOriginalnameController } from '@controllers/uploads/FindUploadsByOriginalnameController';
+
 import { CreateUploadController } from '@controllers/uploads/CreateUploadController';
 import { DeleteUploadController } from '@controllers/uploads/DeleteUploadController';
 
@@ -19,12 +21,16 @@ const multerSigleUpload = multerHandle.single('file');
 const listController = new ListUploadsController();
 const findController = new FindUploadByIdController();
 
+const findByNameController = new FindUploadsByOriginalnameController();
+
 const createController = new CreateUploadController();
 const deleteController = new DeleteUploadController();
 
 /** Routes  */
 routes.get('/uploads', listController.handle);
 routes.get('/uploads/:id', findController.handle);
+
+routes.get('/uploads/originalname/:name', findByNameController.handle);
 
 /**
  * - 5 minutes to ms

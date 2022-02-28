@@ -44,6 +44,9 @@ export class CreateUploadService {
 
     const uploaded = await this.repositories.save(uploadObjectInstance);
 
+    /** Remove remote address  */
+    delete uploaded['uploaded_by'];
+
     return uploaded;
   }
 }

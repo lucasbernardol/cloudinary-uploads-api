@@ -52,7 +52,10 @@ class Upload {
   @Column({ length: 32 })
   format: string;
 
-  @Column({ nullable: true })
+  @Column({
+    nullable: true,
+    select: false,
+  })
   uploaded_by: string;
 
   @CreateDateColumn()
