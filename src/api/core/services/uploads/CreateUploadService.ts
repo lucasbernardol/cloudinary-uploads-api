@@ -15,7 +15,7 @@ export class CreateUploadService {
   ) {}
 
   async execute(upload: ICreateUploadDTO) {
-    const { filename, originalname, mimetype, path } = upload;
+    const { filename, originalname, mimetype, path, uploaded_by } = upload;
 
     const cloudinary = await this.cloudinaryProvider.cloudinaryUploadFileHandle(
       path,
@@ -39,6 +39,7 @@ export class CreateUploadService {
       bytes: cloudinary.bytes,
       type: cloudinary.type,
       format: cloudinary.format,
+      uploaded_by,
     });
 
     const uploaded = await this.repositories.save(uploadObjectInstance);

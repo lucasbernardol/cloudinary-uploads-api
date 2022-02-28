@@ -6,4 +6,5 @@ export interface ICreateUploadDTO {
   mimetype: string;
   originalname: string;
   path: string;
+  uploaded_by: string | null;
 }

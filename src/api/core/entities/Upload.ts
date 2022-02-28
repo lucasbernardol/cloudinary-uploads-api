@@ -52,6 +52,9 @@ class Upload {
   @Column({ length: 32 })
   format: string;
 
+  @Column({ nullable: true })
+  uploaded_by: string;
+
   @CreateDateColumn()
   created_at: Date;
 

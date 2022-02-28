@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from 'express';
 
 import { CreateUploadService } from '@services/uploads/CreateUploadService';
 
+import env from '@config/env';
+
 /**
  * @class CreateUploadController
  */
@@ -10,6 +12,11 @@ export class CreateUploadController {
     try {
       const { filename, mimetype, originalname, path } = request.file;
 
+      const developmentMode = env.IS_NODE_ENV_DEVELOPMENT;
+
+      /** Client remote address  */
+      const uploadedByAddress = developmentMode ? null : request.clientIp;
+
       const services = new CreateUploadService();
 
       const upload = await services.execute({
@@ -17,6 +24,7 @@ export class CreateUploadController {
         mimetype,
         originalname,
         path,
+        uploaded_by: uploadedByAddress,
       });
 
       return response.status(201).json(upload);
