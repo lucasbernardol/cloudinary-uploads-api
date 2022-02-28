@@ -16,7 +16,7 @@
 
   <img alt="GitHub" src="https://img.shields.io/github/license/lucasbernardol/cloudinary-uploads-api">
 
-  <img src="https://pyheroku-badge.herokuapp.com/?app=cloudinary-uploads-api&path=/&style=" />
+  <img src="https://pyheroku-badge.herokuapp.com/?app=uploads-api&path=/&style=" />
 
   <a href="https://github.com/prettier/prettier">
     <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" />
@@ -30,9 +30,25 @@
 ## :earth_americas: Demonstração (demo)
 
 Olá dev :wave:, você pode visualizar e testar o projeto agora mesmo, basta
-acessar: [Uploads API - DEMO :earth_americas:](https://uploads-api.herokuapp.com/api/)
+acessar: [Uploads API - DEMO](https://uploads-api.herokuapp.com/api/)
 
 Informações: a aplicação está hospedada no [Heroku](https://www.heroku.com/)
+
+## :bulb: Implementações e funcionalidades
+
+- Abaixo temos uma lista que contém as implementações da aplicação:
+
+- [x] CRUD de uploads/mídias.
+  - [x] Listagem de uploads.
+  - [x] Buscar uma mídia pelo identificador únido ou **ID**.
+  - [x] Buscar total as mídias pelo nome original do arquivo (SQL LIKE).
+  - [x] Criar um recurso/mídia.
+  - [ ] Atualizar uma mídia/upload.
+  - [x] Remove upload.
+- [x] Paginação básica
+- [x] Obter o endereço remoto do _client_ (IP) e não exibir nas buscas.
+- [ ] Disponibilar uma documentação/arquivo `Insomnia.json`.
+- [x] Deploy no `HEROKU`.
 
 ## :wrench: Como executar no ambiente local?
 
