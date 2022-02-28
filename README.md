@@ -47,7 +47,7 @@ Informações: a aplicação está hospedada no [Heroku](https://www.heroku.com/
   - [x] Remove upload.
 - [x] Paginação básica
 - [x] Obter o endereço remoto do _client_ (IP) e não exibir nas buscas.
-- [ ] Disponibilar uma documentação/arquivo `Insomnia.json`.
+- [x] Disponibilar uma documentação/arquivo `Insomnia.json`.
 - [x] Deploy no `HEROKU`.
 
 ## :wrench: Como executar no ambiente local?
