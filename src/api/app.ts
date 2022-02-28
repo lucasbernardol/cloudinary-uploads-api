@@ -4,6 +4,8 @@ import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
 
+import ip from 'request-ip';
+
 import { createHandler } from '@middlewares/HandlerMiddleware';
 import { routes } from '@routes/v1';
 
@@ -19,6 +21,8 @@ app.set('trust proxy', 1);
 
 app.use(helmet());
 app.use(cors());
+
+app.use(ip.mw());
 
 /** Development */
 if (env.IS_NODE_ENV_DEVELOPMENT) app.use(morgan('dev'));
