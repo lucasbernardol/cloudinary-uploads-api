@@ -1,6 +1,6 @@
 <div align="center">
   <img src="./.github/assets/node.svg" width="80px" height="80px" />
-  <h3>REST API visando o upload de imagens no Cloudinary</h3>
+  <h3>API visando o upload de imagens para o Cloudinary</h3>
 
   <p align="center">
     API REST desenvolvida no NodeJS visando o upload de images ☁ para o Cloudinary. Contruída com <br/>TypeScript, PostgresSQL, TypeORM, entre outros.
@@ -43,10 +43,11 @@ Informações: a aplicação está hospedada no [Heroku](https://www.heroku.com/
   - [x] Buscar uma mídia pelo identificador únido ou **ID**.
   - [x] Buscar total as mídias pelo nome original do arquivo (SQL LIKE).
   - [x] Criar um recurso/mídia.
-  - [ ] Atualizar uma mídia/upload.
+  - [x] Atualizar uma mídia/upload.
   - [x] Remove upload.
 - [x] Paginação básica
 - [x] Obter o endereço remoto do _client_ (IP) e não exibir nas buscas.
+  - [x] Responsável pela criação e atualização de uma mídia.
 - [x] Disponibilar uma documentação/arquivo `Insomnia.json`.
 - [x] Deploy no `HEROKU`.
 
@@ -106,8 +107,7 @@ específicos que desempenham esse papel. Veja a tabela abaixo:
 
 ```bash
 # A resposta da requisição será salva no arquivo "data.json"
-
-$ curl https://uploads-api.herokuapp.com/api/ > data.json
+$ curl https://uploads-api.herokuapp.com/api/uploads > data.json
 ```
 
 #### :pushpin: Endpoints ou rotas
@@ -121,6 +121,7 @@ $ curl https://uploads-api.herokuapp.com/api/ > data.json
 | /api/uploads/:id                | **GET**      | Buscar um upload especifíco                            |
 | /api/uploads/originalname/:name | **GET**      | Listagem de uploads pelo nome original (usa: SQL LIKE) |
 | /api/uploads                    | **POST**     | Criação de uploads/mídias (.png, .jpg, .svg, ...)      |
+| /api/uploads/:id                | **PUT**      | Atualizar uma mídia                                    |
 | /api/uploads/:id                | **DELETE**   | Excluir um upload/mídia                                |
 
 Observação: veja o arquivo Insomnia.json na raiz do projeto, ele contém uma breve
