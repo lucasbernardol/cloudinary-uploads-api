@@ -46,10 +46,14 @@ class Upload {
   @Column()
   resource_type: string;
 
-  @Column({ length: 32 })
+  @Column({
+    length: 32,
+  })
   type: string;
 
-  @Column({ length: 32 })
+  @Column({
+    length: 32,
+  })
   format: string;
 
   @Column({
@@ -57,6 +61,12 @@ class Upload {
     select: false,
   })
   uploaded_by: string;
+
+  @Column({
+    nullable: true,
+    select: false,
+  })
+  updated_by: string;
 
   @CreateDateColumn()
   created_at: Date;

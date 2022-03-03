@@ -8,22 +8,19 @@ import { ListUploadsServices } from '@services/uploads/ListUploadsServices';
 export class ListUploadsController {
   async handle(request: Request, response: Response, next: NextFunction) {
     try {
-      let { page: queryPage, limit: limitPage } = request.query;
-
-      const page = Number(queryPage) || 1;
-
-      const limit = Number(limitPage) || 10;
+      let { page, limit } = request.query;
 
       const services = new ListUploadsServices();
 
-      const { uploads, disabled } = await services.execute({ page, limit });
-
-      /** Set header  */
-      response.set({
-        'Disabled-range': disabled,
+      const { _meta, uploads, disabled } = await services.execute({
+        page: Number(page),
+        limit: Number(limit),
       });
 
-      return response.json(uploads);
+      /** Set header  */
+      response.set({ 'Disabled-range': disabled });
+
+      return response.json({ uploads, _meta });
     } catch (error) {
       return next(error);
     }

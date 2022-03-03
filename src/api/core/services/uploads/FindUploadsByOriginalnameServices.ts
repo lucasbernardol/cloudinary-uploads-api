@@ -2,12 +2,12 @@ import { getCustomRepository, Like } from 'typeorm';
 import * as Paging from 'paging-util';
 
 import { UploadRepositories } from '@repositories/UploadRepositories';
+import { normalize, normalizeConstants } from '@shared/utils/paging';
 
 import { IPagingOptions } from '@shared/interface/types/IPagingOptions';
-import { Metadata } from '@shared/interface/types/IPagingMetadata';
+import { IPagingMetadata } from '@shared/interface/types/IPagingMetadata';
 
 import { IFindByOriginalnameDTO } from './dtos/IFindByOriginalnameDTO';
-import { normalize, normalizeConstants } from '@shared/utils/paging';
 
 /**
  * @class FindUploadsByOriginalnameServices
@@ -22,7 +22,7 @@ export class FindUploadsByOriginalnameServices {
 
     const totalPerPageLessThanTen = extras.limit < 10;
 
-    /** ORM like string  */
+    /** ORM LIKE string  */
     const like = `%${originalname}%`;
 
     const records = await this.repositories.count({
@@ -43,7 +43,7 @@ export class FindUploadsByOriginalnameServices {
     });
 
     /** @TODO pagination  */
-    let metadata: Metadata;
+    let metadata: IPagingMetadata;
 
     const totalRecordsGreaterThanOne = records >= 1;
 
@@ -55,12 +55,10 @@ export class FindUploadsByOriginalnameServices {
     }
 
     return {
-      uploads: {
-        uploads,
-        metadata,
-      },
+      uploads,
 
       disabled: +totalPerPageLessThanTen,
+      _meta: metadata,
     };
   }
 }

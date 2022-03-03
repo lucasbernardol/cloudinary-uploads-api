@@ -10,21 +10,22 @@ export class FindUploadsByOriginalnameController {
     try {
       const { page, limit } = request.query;
 
-      const { name } = request.params;
+      const { originalname } = request.params;
 
       const services = new FindUploadsByOriginalnameServices();
 
-      const { uploads, disabled } = await services.execute(
-        { originalname: name },
+      const { uploads, _meta, disabled } = await services.execute(
+        { originalname },
         {
           page: Number(page),
           limit: Number(limit),
         }
       );
 
+      /** Set headers  */
       response.set({ 'Disabled-range': disabled });
 
-      return response.json(uploads);
+      return response.json({ uploads, _meta });
     } catch (error) {
       return next(error);
     }

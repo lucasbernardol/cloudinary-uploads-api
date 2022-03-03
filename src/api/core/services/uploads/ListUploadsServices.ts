@@ -3,19 +3,10 @@ import * as Paging from 'paging-util';
 
 import { UploadRepositories } from '@repositories/UploadRepositories';
 
+import { normalize, normalizeConstants } from '@shared/utils/paging';
+
 import { IPagingOptions } from '@shared/interface/types/IPagingOptions';
-
-import {
-  normalize,
-  normalizeConstants,
-  NormalizeConstants,
-  NormalizePagingUtil,
-} from '@shared/utils/paging';
-
-export interface Metadata {
-  pagination?: NormalizePagingUtil;
-  constants?: NormalizeConstants;
-}
+import { IPagingMetadata } from '@shared/interface/types/IPagingMetadata';
 
 /**
  * @class ListUploadsServices
@@ -31,14 +22,10 @@ export class ListUploadsServices {
     const records = await this.repositories.count();
 
     /** Merged options  */
-    const mergedPaginationOptions = {
-      records,
-      ...extras,
-    };
+    const mergedPaginationOptions = { records, ...extras };
 
     const { offset, constants, ...paging } = Paging.paginate({
       ...mergedPaginationOptions,
-
       setRange: totalPerPageLessThanTen ? false : true, // pages[]
     });
 
@@ -47,7 +34,7 @@ export class ListUploadsServices {
       skip: offset,
     });
 
-    let metadata: Metadata;
+    let metadata: IPagingMetadata;
 
     const recordsTotalGreaterThanOne = records >= 1;
 
@@ -62,13 +49,10 @@ export class ListUploadsServices {
     }
 
     return {
-      uploads: {
-        uploads,
-        metadata,
-      },
+      uploads,
 
-      /** Boolean => Number  */
-      disabled: +totalPerPageLessThanTen,
+      disabled: +totalPerPageLessThanTen /** Boolean => Number  */,
+      _meta: metadata,
     };
   }
 }
