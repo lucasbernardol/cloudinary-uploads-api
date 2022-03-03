@@ -119,7 +119,7 @@ $ curl https://uploads-api.herokuapp.com/api/uploads > data.json
 | /api/                           | **GET**      | Endpoint principal                                     |
 | /api/uploads                    | **GET**      | Listagem de uploads/mídias                             |
 | /api/uploads/:id                | **GET**      | Buscar um upload especifíco                            |
-| /api/uploads/originalname/:name | **GET**      | Listagem de uploads pelo nome original (usa: SQL LIKE) |
+| /api/uploads/name/:originalname | **GET**      | Listagem de uploads pelo nome original (usa: SQL LIKE) |
 | /api/uploads                    | **POST**     | Criação de uploads/mídias (.png, .jpg, .svg, ...)      |
 | /api/uploads/:id                | **PUT**      | Atualizar uma mídia                                    |
 | /api/uploads/:id                | **DELETE**   | Excluir um upload/mídia                                |
