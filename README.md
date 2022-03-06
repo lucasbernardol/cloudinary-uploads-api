@@ -1,6 +1,6 @@
 <div align="center">
   <img src="./.github/assets/node.svg" width="80px" height="80px" />
-  <h3>API visando o upload de imagens para o Cloudinary</h3>
+  <h3>Upload público de images para o Cloudinary</h3>
 
   <p align="center">
     API REST desenvolvida no NodeJS visando o upload de images ☁ para o Cloudinary. Contruída com <br/>TypeScript, PostgresSQL, TypeORM, entre outros.
@@ -27,12 +27,13 @@
   <small>Build with ❤️ by: <a href="https://github.com/lucasbernardol">José Lucas</a></small>
 </p>
 
-## :earth_americas: Demonstração (demo)
+## Demonstração (demo)
 
-Olá dev :wave:, você pode visualizar e testar o projeto agora mesmo, basta
-acessar: [Uploads API - DEMO](https://uploads-api.herokuapp.com/api/)
+Olá :wave:, você pode visualizar e testar o projeto agora mesmo, basta
+acessar: [:earth_americas: API - DEMO](https://uploads-api.herokuapp.com/api/)
 
-Informações: a aplicação está hospedada no [Heroku](https://www.heroku.com/)
+> A aplicação está hospedada no Heroku, e para mais detalhes acesse:
+> [Heroku](https://www.heroku.com/)
 
 ## :bulb: Implementações e funcionalidades
 
@@ -48,7 +49,9 @@ Informações: a aplicação está hospedada no [Heroku](https://www.heroku.com/
 - [x] Paginação básica
 - [x] Obter o endereço remoto do _client_ (IP) e não exibir nas buscas.
   - [x] Responsável pela criação e atualização de uma mídia.
-- [x] Disponibilar uma documentação/arquivo `Insomnia.json`.
+- [x] Documentação
+  - [x] Disponibilar uma arquivo `Insomnia.json`.
+  - [x] Documentação básica usando [apidocjs](https://apidocjs.com/)
 - [x] Deploy no `HEROKU`.
 
 ## :wrench: Como executar no ambiente local?
@@ -106,7 +109,7 @@ específicos que desempenham esse papel. Veja a tabela abaixo:
 - Você pode usar o `curl`. Veja:
 
 ```bash
-# A resposta da requisição será salva no arquivo "data.json"
+# A requisição será salva no "data.json"
 $ curl https://uploads-api.herokuapp.com/api/uploads > data.json
 ```
 
@@ -114,15 +117,15 @@ $ curl https://uploads-api.herokuapp.com/api/uploads > data.json
 
 - Abaixo você encontra uma tabela com os principais endpoints da aplicação:
 
-| Endpoints                       | Métodos HTTP | Descrição                                              |
-| ------------------------------- | ------------ | ------------------------------------------------------ |
-| /api/                           | **GET**      | Endpoint principal                                     |
-| /api/uploads                    | **GET**      | Listagem de uploads/mídias                             |
-| /api/uploads/:id                | **GET**      | Buscar um upload especifíco                            |
-| /api/uploads/name/:originalname | **GET**      | Listagem de uploads pelo nome original (usa: SQL LIKE) |
-| /api/uploads                    | **POST**     | Criação de uploads/mídias (.png, .jpg, .svg, ...)      |
-| /api/uploads/:id                | **PUT**      | Atualizar uma mídia                                    |
-| /api/uploads/:id                | **DELETE**   | Excluir um upload/mídia                                |
+| Endpoints                      | Métodos HTTP | Descrição                                              |
+| ------------------------------ | ------------ | ------------------------------------------------------ |
+| /api/v1                        | **GET**      | Endpoint principal                                     |
+| /api/v1/uploads                | **GET**      | Listagem de uploads/mídias                             |
+| /api/v1/uploads/:id            | **GET**      | Buscar um upload especifíco                            |
+| /api/v1/uploads/name/:filename | **GET**      | Listagem de uploads pelo nome original (usa: SQL LIKE) |
+| /api/v1/uploads                | **POST**     | Criação de uploads/mídias (.png, .jpg, .svg, ...)      |
+| /api/v1/uploads/:id            | **PUT**      | Atualizar uma mídia                                    |
+| /api/v1/uploads/:id            | **DELETE**   | Excluir um upload/mídia                                |
 
 Observação: veja o arquivo Insomnia.json na raiz do projeto, ele contém uma breve
 documentação com todos os endpoints.
