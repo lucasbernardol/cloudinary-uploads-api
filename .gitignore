@@ -19,6 +19,8 @@ pids
 build/*
 /*.rest
 
+docs/
+
 temp/uploads/*
 !temp/uploads/.gitkeep
 
