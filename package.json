@@ -46,6 +46,7 @@
     "@types/multer": "^1.4.7",
     "@types/node": "^17.0.21",
     "@types/request-ip": "^0.0.37",
+    "apidoc": "^0.50.4",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "husky": "^7.0.4",
