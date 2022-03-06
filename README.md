@@ -30,7 +30,7 @@
 ## Demonstração (demo)
 
 Olá :wave:, você pode visualizar e testar o projeto agora mesmo, basta
-acessar: [:earth_americas: API - DEMO](https://uploads-api.herokuapp.com/api/)
+acessar: [:earth_americas: API - DEMO](https://uploads-api.herokuapp.com/api/v1)
 
 > A aplicação está hospedada no Heroku, e para mais detalhes acesse:
 > [Heroku](https://www.heroku.com/)
