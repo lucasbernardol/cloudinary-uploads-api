@@ -1,21 +1,18 @@
 import { Router } from 'express';
 
-import { MainController } from '@controllers/main/MainController';
-
-import { uploadsRoutes } from './uploads.routes';
+import { Main } from './main.routes';
+import { Upload } from './uploads.routes';
 
 const routes = Router();
 
-const controller = new MainController();
+/**
+ * @example: http://localhost:3333/api/v1
+ */
+routes.get('/api/v1', Main);
 
 /**
- * @example: /api
+ * @example: http://localhost:3333/api/v1/uploads
  */
-routes.get('/api', controller.handle);
-
-/**
- * @example: /api/uploads
- */
-routes.use('/api', uploadsRoutes);
+routes.use('/api/v1', Upload);
 
 export { routes };

@@ -9,8 +9,7 @@ export interface IMainRequestResponse {
     name: string;
     github: string;
   };
-  application_repository: string;
+  repository: string;
   status: Status;
-  date: string | Date | number;
-  [key: string]: any;
+  timestamp: string | Date | number;
 }
