@@ -6,6 +6,7 @@
   "author": "lucasbernardol <jose.lukass03@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "docs": "apidoc -i src -o docs",
     "start": "node dist/main.js",
     "prebuild": "rimraf dist",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
