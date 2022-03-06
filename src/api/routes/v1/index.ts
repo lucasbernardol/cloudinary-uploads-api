@@ -8,7 +8,7 @@ const routes = Router();
 /**
  * @example: http://localhost:3333/api/v1
  */
-routes.get('/api/v1', Main);
+routes.use('/api/v1', Main);
 
 /**
  * @example: http://localhost:3333/api/v1/uploads
