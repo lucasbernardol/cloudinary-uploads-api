@@ -14,7 +14,7 @@ export class FindUploadsByOriginalnameController {
 
       const services = new FindUploadsByOriginalnameServices();
 
-      const { uploads, _meta, disabled } = await services.execute(
+      const { uploads, _metadata, disabled } = await services.execute(
         { originalname },
         {
           page: Number(page),
@@ -25,7 +25,7 @@ export class FindUploadsByOriginalnameController {
       /** Set headers  */
       response.set({ 'Disabled-range': disabled });
 
-      return response.json({ uploads, _meta });
+      return response.json({ uploads, _metadata });
     } catch (error) {
       return next(error);
     }

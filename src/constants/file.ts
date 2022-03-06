@@ -1,18 +1,11 @@
-/**
- * @constant supportedMimetypes
- */
 export const supportedMimetypes: string[] = [
   'image/jpeg',
   'image/pjpeg',
   'image/png',
-  'image/svg+xml',
   'image/svg',
 ];
 
-/**
- * @constant multerRandomFileSizeInBytes
- */
-export const multerRandomFilenameSizeInBytes = 20;
+export const multerRandomFilenameSizeInBytes = 12;
 
 /**
  * - Max: `3MB`

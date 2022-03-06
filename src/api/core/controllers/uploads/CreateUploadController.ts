@@ -12,7 +12,7 @@ export class CreateUploadController {
     try {
       const { filename, mimetype, originalname, path } = request.file;
 
-      /** @example 182.157.0...  */
+      /** @example: 182.157.0...  */
       const clientIP = env.IS_NODE_ENV_DEVELOPMENT ? null : request.clientIp;
 
       const services = new CreateUploadService();

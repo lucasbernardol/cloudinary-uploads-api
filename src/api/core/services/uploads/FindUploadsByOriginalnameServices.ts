@@ -58,7 +58,7 @@ export class FindUploadsByOriginalnameServices {
       uploads,
 
       disabled: +totalPerPageLessThanTen,
-      _meta: metadata,
+      _metadata: metadata,
     };
   }
 }

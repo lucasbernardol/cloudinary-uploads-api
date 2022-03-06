@@ -17,7 +17,7 @@ export class FindUploadByIdService {
 
     /** @TODO Return a error message  */
     if (isNaN(convertIdInputToNumber)) {
-      throw new BadRequest(`Invalid params: "${id}"`);
+      throw new BadRequest(`Invalid params: '${id}'`);
     }
 
     const upload = await this.repositories.findOne({

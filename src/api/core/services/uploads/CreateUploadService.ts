@@ -1,7 +1,9 @@
 import { getCustomRepository } from 'typeorm';
 
-import { UploadRepositories } from '@repositories/UploadRepositories';
 import { createCludinaryProvider } from '@providers/CloudinaryProvider';
+
+import { Upload } from '@entities/Upload';
+import { UploadRepositories } from '@repositories/UploadRepositories';
 
 import { ICreateUploadDTO } from './dtos/ICreateUploadDTO';
 
@@ -14,7 +16,7 @@ export class CreateUploadService {
     private cloudinaryProvider = createCludinaryProvider()
   ) {}
 
-  async execute(upload: ICreateUploadDTO) {
+  async execute(upload: ICreateUploadDTO): Promise<Partial<Upload>> {
     const { filename, originalname, mimetype, path, uploaded_by } = upload;
 
     const cloudinary = await this.cloudinaryProvider.cloudinaryUploadFileHandle(
@@ -46,6 +48,8 @@ export class CreateUploadService {
 
     /** Remove remote address  */
     delete uploaded['uploaded_by'];
+
+    delete uploaded['updated_by'];
 
     return uploaded;
   }

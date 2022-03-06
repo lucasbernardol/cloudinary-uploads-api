@@ -36,7 +36,7 @@ export class UpdateUploadService {
 
     const uploadIntegerIdIsNaN = isNaN(parsedUploadIdToInteger);
 
-    if (uploadIntegerIdIsNaN) throw new BadRequest(`Invalid params: ${id}`);
+    if (uploadIntegerIdIsNaN) throw new BadRequest(`Invalid params: '${id}'`);
 
     const upload = await this.repositories.findOne({
       where: { id: parsedUploadIdToInteger },
@@ -82,7 +82,7 @@ export class UpdateUploadService {
     );
 
     return {
-      removed: deletion,
+      cloudinary: deletion,
       updated: Boolean(updatedResultDatabase.affected),
     };
   }

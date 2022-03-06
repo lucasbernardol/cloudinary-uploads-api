@@ -12,7 +12,7 @@ export class ListUploadsController {
 
       const services = new ListUploadsServices();
 
-      const { _meta, uploads, disabled } = await services.execute({
+      const { _metadata, uploads, disabled } = await services.execute({
         page: Number(page),
         limit: Number(limit),
       });
@@ -20,7 +20,7 @@ export class ListUploadsController {
       /** Set header  */
       response.set({ 'Disabled-range': disabled });
 
-      return response.json({ uploads, _meta });
+      return response.json({ uploads, _metadata });
     } catch (error) {
       return next(error);
     }

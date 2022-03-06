@@ -10,6 +10,7 @@ import {
   multerRandomFilenameSizeInBytes,
   multerMaxFileSizeInBytes,
   supportedMimetypes,
+  multerMaxFileSizeInString,
 } from '@constants/file';
 
 const options: Options = {
@@ -21,9 +22,7 @@ const options: Options = {
 
         const bufferToFilenameStringHex = buffer.toString('hex');
 
-        /**
-         * @example: filename "a0a0ff4f45fb8ac4646a416160.jpg"
-         */
+        /** @example: filename "a0a0ff4f45fb8ac4646a416160.jpg"  */
         const randomFilename =
           bufferToFilenameStringHex + extname(multerFileOptions.originalname);
 
@@ -33,11 +32,14 @@ const options: Options = {
   }),
 
   limits: {
-    fileSize: multerMaxFileSizeInBytes, // 3MB
+    fileSize: multerMaxFileSizeInBytes,
     files: 10,
   },
 
   fileFilter: (request, multerFileObject, callback) => {
+    const getMessage = (tupe: string) =>
+      `Invalid mimetype: '${tupe}', please try again later!`;
+
     const { mimetype: currentFileMimetype, originalname } = multerFileObject;
 
     const isSupportedMimetype = supportedMimetypes.some((mimetype) => {
@@ -45,14 +47,18 @@ const options: Options = {
     });
 
     /** @TODO Return a error message  */
-    if (!isSupportedMimetype) {
+    const hasNotSupportedMimeType = !isSupportedMimetype;
+
+    if (hasNotSupportedMimeType) {
       const extras = {
-        supported_mimetypes: [...supportedMimetypes],
         filename: originalname,
+        mimetypes_supported: [...supportedMimetypes],
+
+        supportted_size: multerMaxFileSizeInString,
         supported_size_bytes: multerMaxFileSizeInBytes, // sizes
       };
 
-      const message = `Invalid mimetype: "${currentFileMimetype}", please try again later!`;
+      const message = getMessage(currentFileMimetype);
 
       return callback(createCustomHttpError(415, message, extras));
     }

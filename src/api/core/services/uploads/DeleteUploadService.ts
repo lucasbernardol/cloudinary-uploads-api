@@ -13,7 +13,7 @@ import { Id } from '@shared/interface/types/Id';
  * @interface Result
  */
 export interface Result {
-  destroyed: CloudinaryDestroyOutput;
+  cloudinary: CloudinaryDestroyOutput;
   deleted: boolean;
 }
 
@@ -31,7 +31,7 @@ export class DeleteUploadService {
 
     /** @TODO validate ID  */
     if (isNaN(uploadIdInputParseNumber)) {
-      throw new BadRequest(`Invalid param: "${uploadId}"`);
+      throw new BadRequest(`Invalid param: '${uploadId}'`);
     }
 
     const upload = await this.repositories.findOne({
@@ -52,7 +52,7 @@ export class DeleteUploadService {
     const deletion = await this.repositories.delete(uploadId);
 
     return {
-      destroyed: destroy,
+      cloudinary: destroy,
       deleted: Boolean(deletion.affected),
     };
   }

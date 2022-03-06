@@ -19,7 +19,7 @@ export class UpdateUploadController {
 
       const services = new UpdateUploadService();
 
-      const { removed, updated } = await services.execute(id, {
+      const deleted = await services.execute(id, {
         path,
         filename,
         mimetype,
@@ -27,9 +27,7 @@ export class UpdateUploadController {
         updated_by: clientIP,
       });
 
-      const changed = { ...removed };
-
-      return response.json({ changed, updated });
+      return response.json(deleted);
     } catch (error) {
       return next(error);
     }

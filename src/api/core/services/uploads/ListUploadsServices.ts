@@ -52,7 +52,7 @@ export class ListUploadsServices {
       uploads,
 
       disabled: +totalPerPageLessThanTen /** Boolean => Number  */,
-      _meta: metadata,
+      _metadata: metadata,
     };
   }
 }
