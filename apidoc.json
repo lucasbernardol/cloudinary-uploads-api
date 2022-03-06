@@ -1,0 +1,11 @@
+{
+  "name": "Cloudinary uploads API",
+  "version": "1.0.0",
+  "description": "REST API documentation",
+  "title": "[Cloudinary uploads API documentation",
+  "url": "https://uploads-api.herokuapp.com/api/v1/",
+  "order": ["Main", "Uploads"],
+  "template": {
+    "withGenerator": false
+  }
+}
