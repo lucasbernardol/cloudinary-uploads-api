@@ -78,6 +78,8 @@ const updateController = new UpdateUploadController();
  *    },
  *  ]
  * }
+ *
+ * @apiSampleRequest https://uploads-api.herokuapp.com/api/v1/uploads
  */
 routes.get('/uploads', listController.handle);
 
